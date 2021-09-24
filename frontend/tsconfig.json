@@ -1,0 +1,75 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@tokens/*": [
+        "src/tokens/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@sharedComponents/*": [
+        "src/app/shared/components/*"
+      ],
+      "@store/*": [
+        "src/app/store/*"
+      ],
+      "@models/*": [
+        "src/app/shared/models/*"
+      ],
+      "@mainPage/*": [
+        "src/app/main-page/*"
+      ],
+      "@mainPageStore/*": [
+        "src/app/main-page/store/*"
+      ],
+      "@mainPageActions/*": [
+        "src/app/main-page/store/actions/*"
+      ],
+      "@mainPageReducers/*": [
+        "src/app/main-page/store/reducers/*"
+      ],
+      "@mainPageSelectors/*": [
+        "src/app/main-page/store/selectors/*"
+      ],
+      "@mainPageEffects/*": [
+        "src/app/main-page/store/effects/*"
+      ],
+      "@mainPageComponents/*": [
+        "src/app/main-page/components/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

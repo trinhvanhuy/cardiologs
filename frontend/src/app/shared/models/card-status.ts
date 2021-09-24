@@ -1,0 +1,6 @@
+export enum CARD_STATUS {
+  NONE = 'NONE',
+  PENDING = 'PENDING',
+  REJECTED = 'REJECTED',
+  DONE = 'DONE'
+}

@@ -1,0 +1,12 @@
+.column-container {
+  border: solid 1px green;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.column {
+  display: inline-block;
+  border: solid 1px black;
+  flex: 1;
+  padding: 20px;
+}

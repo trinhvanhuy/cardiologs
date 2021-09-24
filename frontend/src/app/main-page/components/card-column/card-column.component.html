@@ -1,0 +1,31 @@
+<div
+  class="card-container"
+  cdkDropList
+  [id]="status"
+  [cdkDropListData]="column.cards"
+  (cdkDropListDropped)="changeStatus($event)"
+  [cdkDropListConnectedTo]="listStatus"
+>
+  <div class="status" [ngClass]="status.toLowerCase()">{{ status }}</div>
+  <mat-card
+    *ngFor="let card of column.cards; trackBy: trackByIndex"
+    class="patient-card"
+    cdkDrag
+    [cdkDragData]="card"
+  >
+    <div *ngIf="card.status === status">
+      <mat-card-title>{{ card.patientName }}</mat-card-title>
+      <mat-card-subtitle>{{
+        card.createdDate | date: "short"
+      }}</mat-card-subtitle>
+      <mat-card-actions>
+        <button
+          mat-button
+          *ngFor="let arrhythmia of card.arrhythmias; trackBy: trackByIndex"
+        >
+          {{ arrhythmia }}
+        </button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>

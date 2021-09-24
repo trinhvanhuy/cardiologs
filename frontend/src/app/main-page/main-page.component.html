@@ -1,0 +1,7 @@
+<main-header></main-header>
+<div class="seperator"></div>
+<div class="column-container">
+  <div class="column" *ngFor="let item of listColumn; trackBy: trackByIndex">
+    <card-column [column]="item" [status]="item.status" (changeCardStatus)="changeStatus($event)"></card-column>
+  </div>
+</div>

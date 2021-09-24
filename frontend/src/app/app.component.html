@@ -1,0 +1,5 @@
+<router-outlet *ngIf="isDataReady"></router-outlet>
+
+<!-- Loading Screen -->
+<div *ngIf="!isDataReady" class="loading-screen">
+</div>
