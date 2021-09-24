@@ -16,7 +16,7 @@
     <div *ngIf="card.status === status">
       <mat-card-title>{{ card.patientName }}</mat-card-title>
       <mat-card-subtitle>{{
-        card.createdDate | date: "short"
+        card.createdDate | date: "mediumDate"
       }}</mat-card-subtitle>
       <mat-card-actions>
         <button
