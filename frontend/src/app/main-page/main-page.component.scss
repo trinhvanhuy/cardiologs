@@ -2,6 +2,8 @@
   border: solid 1px green;
   box-sizing: border-box;
   display: flex;
+  height: 100%;
+  padding-top: 60px;
 }
 
 .column {
@@ -9,4 +11,5 @@
   border: solid 1px black;
   flex: 1;
   padding: 20px;
+  height: 100%;
 }
