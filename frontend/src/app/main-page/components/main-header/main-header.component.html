@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">
-    <div class="search-container">
-        <input type="search" placeholder="Search by everything">
-    </div>
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search by everything"
+      (change)="searching.emit($event)"
+    />
+  </div>
 </mat-toolbar>

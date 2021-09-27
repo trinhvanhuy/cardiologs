@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { CardService } from '@shared/services/card.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { CardData, CardDataFromBE } from '@models/card';
-import { Observable, of } from 'rxjs';
-import * as mainPageActions from '@mainPageActions/main-page.actions';
-import { Action } from '@ngrx/store';
+import { of } from 'rxjs';
+import * as mainPageActions from '@app/main-page/store/actions/main-page.actions';
 import { catchError, switchMap } from 'rxjs/operators';
 
 @Injectable()

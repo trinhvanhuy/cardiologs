@@ -11,13 +11,13 @@ import { BaseComponent } from '@app/base.component';
 import { Column } from '@app/shared/models/column';
 
 @Component({
-  selector: 'main-page',
+  selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent extends BaseComponent implements OnInit {
   onDestroy$ = new Subject();
-  listColumn: Column[] = [{
+  originalListColumn: Column[] = [{
     status: CARD_STATUS.PENDING,
     cards: []
   }, {
@@ -27,6 +27,7 @@ export class MainPageComponent extends BaseComponent implements OnInit {
     status: CARD_STATUS.REJECTED,
     cards: []
   }];
+  listColumn: Column[] = [];
 
   constructor(readonly store: Store<AppState>) {
     super();
@@ -37,9 +38,10 @@ export class MainPageComponent extends BaseComponent implements OnInit {
     this.store
       .pipe(select(getAllCards), takeUntil(this.onDestroy$))
       .subscribe((data) => {
-        this.listColumn.forEach(col => {
+        this.originalListColumn.forEach(col => {
           col.cards = data.filter(card => card.status === col.status);
-        })
+        });
+        this.listColumn = JSON.parse(JSON.stringify(this.originalListColumn));
       });
   }
   ngOnDestroy() {
@@ -49,6 +51,23 @@ export class MainPageComponent extends BaseComponent implements OnInit {
   changeStatus(cardUpdated: CardData) {
     this.store.dispatch(UpdateCard({data: cardUpdated, id: cardUpdated.id}));
   }
+  private filterCard(cards: CardData[], searchKey: string) {
+    return cards.filter((card: CardData )=> {
+      return Object.keys(card).some(key => {
+        let objToCheck = (card as any)[key];
+        if (Array.isArray(objToCheck)) {
+          objToCheck = objToCheck.join();
+        }
+        return (card as any)[key].toString().toLowerCase().includes(searchKey);
+      })
+    });
+  }
 
-  
+  searchForCard($event: Event) {
+    const searchingText = ($event as any).target.value.toLowerCase();
+    this.listColumn = JSON.parse(JSON.stringify(this.originalListColumn));
+    for(var i=0; i<this.listColumn.length; i++) {
+      this.listColumn[i].cards = (this.filterCard(this.listColumn[i].cards, searchingText));
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import { CardData } from '@models/card';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import * as MainPageActions from '@mainPageActions/main-page.actions';
+import * as MainPageActions from '@app/main-page/store/actions/main-page.actions';
 import { Action, createReducer, on } from '@ngrx/store';
 
 export interface CardDataState extends EntityState<CardData> {}

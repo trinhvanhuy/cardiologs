@@ -1,9 +1,7 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
 } from '@angular/core';
 import { CardData } from '@shared/models/card';
@@ -13,11 +11,11 @@ import { Column } from '@app/shared/models/column';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'card-column',
+  selector: 'app-card-column',
   templateUrl: './card-column.component.html',
-  styleUrls: ['./card-column.component.scss']
+  styleUrls: ['./card-column.component.scss'],
 })
-export class CardColumnComponent extends BaseComponent implements OnInit {
+export class CardColumnComponent extends BaseComponent {
   @Input() column: Column = {
     status: CARD_STATUS.NONE,
     cards: [],
@@ -30,10 +28,9 @@ export class CardColumnComponent extends BaseComponent implements OnInit {
   constructor() {
     super();
   }
-  ngOnInit(): void {}
   changeStatus($event: CdkDragDrop<CardData[]>) {
-    const item: CardData = {...$event.item.data};
+    const item: CardData = { ...$event.item.data };
     item.status = $event.container.id as CARD_STATUS;
-    this.changeCardStatus.emit(item)
+    this.changeCardStatus.emit(item);
   }
 }
