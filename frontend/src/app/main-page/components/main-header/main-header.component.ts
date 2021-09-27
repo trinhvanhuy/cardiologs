@@ -10,7 +10,4 @@ export class MainHeaderComponent {
   
   @Output() public searching = new EventEmitter<any>();
   constructor() { }
-  modelChanged($event: Event) {
-    console.log($event);
-  }
 }
