@@ -6,6 +6,8 @@
 - Animation
 - ChangeDetection.Onpush
 
+![code coverage](https://github.com/trinhvanhuy/cardiologs/blob/master/CodeCoverage.png?raw=true)
+
 # TODO
 - Refactor SCSS (global variables)
 - Use pipe/directive for searching
